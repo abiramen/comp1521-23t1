@@ -11,6 +11,10 @@ int main(void) {
 }
 
 int factorial(int n) {
-    // todo
-    return -1;
+    if (n == 0) {  // base case
+        return 1;
+    } 
+    // recursive case
+    return n * factorial(n - 1);
+
 }
