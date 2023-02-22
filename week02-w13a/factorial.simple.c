@@ -9,9 +9,19 @@ int main(void) {
     scanf("%d", &n);
 
     int fac = 1;
-    for (int i = 1; i <= n; i++) {
-        fac *= i;
-    }
+
+calc_loop__init:
+    int i = 1;
+calc_loop__cond:
+    if (i > n) goto calc_loop__end;
+
+calc_loop__body:
+    fac *= i;
+calc_loop__step:
+    i++;
+    goto calc_loop__cond;
+
+calc_loop__end:
 
     printf("n! = %d\n", fac);
     return 0;
