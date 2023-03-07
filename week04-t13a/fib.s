@@ -111,7 +111,7 @@ fib:
 fib__prologue:
 	begin
 	push	$ra
-	push	$s0				## We must push every $s register our function uses.
+	push	$s0				## We must push every $s register our function uses. (Even the main function must do this!)
 	push	$s1				## Other functions may rely on their preservation.
 
 fib__body:
