@@ -24,10 +24,7 @@ main__for_col_cond:
 	bge	$t1, N_COLS, main__for_col_end			# if (col >= N_COLS) goto main__for_col_end;
 
 main__for_col_body:
-	mul     $t2, $t0, N_COLS				# (row * N_COLS
-	add     $t2, $t2, $t1					# + col)
-	mul     $t2, $t2, 1					# * sizeof(char)
-	lb      $a0, flag($t2)					# = &flag[row][col]
+	# TODO: index into the array
 								#
 	li      $v0, 11                                         # syscall 11: print_char
 	syscall							# printf("%c", flag[row][col]);
