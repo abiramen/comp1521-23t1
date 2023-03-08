@@ -29,7 +29,7 @@ main__for_col_cond:
     if (col >= N_COLS) goto main__for_col_end;
 
 main__for_col_body:
-    printf("%c", flag[row][col]);               // TODO: &flag[row][col] = 
+    printf("%c", flag[row][col]);               // TODO: &flag[row][col] = flag + (row * N_COLS + col) 
 
 main__for_col_step:
     col++;

@@ -25,7 +25,12 @@ main__for_col_cond:
 
 main__for_col_body:
 	# TODO: index into the array
-								#
+	
+	mul	$t2, $t0, N_COLS				# (row * N_COLS
+	add	$t2, $t2, $t1					# + col)
+	lb	$a0, flag($t2)
+
+
 	li      $v0, 11                                         # syscall 11: print_char
 	syscall							# printf("%c", flag[row][col]);
 
