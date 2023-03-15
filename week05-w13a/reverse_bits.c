@@ -6,7 +6,25 @@
 typedef unsigned int Word;
 
 Word reverse_bits(Word value) {
-    // TODO
+    int N_BITS = sizeof(Word);
+
+    Word result = 0;
+
+    for (int i = 0; i < N_BITS; i++) {
+        Word read_mask = 1u << (N_BITS - i - 1);
+        Word update_mask = 1u << i;
+
+        if (value & read_mask) {
+            // the bit in this position is set to a 1
+            result = result | update_mask;
+        } else {
+            // the bit in this position is set to a 0
+            // we don't need this because the bits of 
+            // result start off as 0
+        }
+    }
+
+    return result;
 }
 
 int main(void) {
