@@ -8,7 +8,9 @@ typedef struct six_bit_groups {
  
 /* 
 For example:
-00000000 00000101 01000000 01110110 
+                0000000000000101010
+                             111111 <- mask
+                              3   f
 
  
 middle six bits are 101010
@@ -17,6 +19,14 @@ middle six bits are 101010
  
 // TODO
 six_bit_groups_t get_bit_groups(uint32_t value) {
+    // uint32_t six_bit_mask = 0x3f;       // 0b111111
+
+    six_bit_groups_t result = {
+        .lower_bits = value & 0x3f,
+        .middle_bits = (value >> 13) & 0x3f
+    };
+    // result.lower_bits = value & six_bit_mask;
+    // result.middle_bits = (value >> 13) & six_bit_mask;
 
     return result;
 }
